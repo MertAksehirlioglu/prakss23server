@@ -1,0 +1,22 @@
+{
+  "name": "myexpressapp",
+  "version": "1.0.0",
+  "description": "testin expressjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "body-parser": "^1.20.2",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-sse": "^0.5.1",
+    "xmldom": "^0.6.0",
+    "xpath": "^0.0.32"
+  }
+}
