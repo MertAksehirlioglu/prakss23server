@@ -23,7 +23,7 @@ app.get('/sse', (req, res, next) => {
 
 
 const corsOptions = {
-  origin: ["https://prak-ss-23.vercel.app", "http://localhost:3000", "https://lehre.bpm.in.tum.de"],
+  origin: ["http://localhost:3000", "https://lehre.bpm.in.tum.de"],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
