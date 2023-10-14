@@ -2,11 +2,12 @@
 
 The Order Receiving Server is a Node.js application that facilitates the process of receiving and processing orders for a robotic system. It provides a simple API for ordering drinks, checking system readiness, and monitoring the current state of the system.
 
-Prerequisites
+## Prerequisites
 Before running this server, you need to have the following dependencies installed:
 
 Node.js: You can download and install Node.js from https://nodejs.org/.
-Installation
+
+## Installation
 Clone the repository to your local machine.
 Navigate to the project directory in your terminal.
 Install the required Node.js modules using npm:
@@ -37,7 +38,8 @@ Copy code
 npm start
 The server will start on port 22950. You can change the port by modifying the port variable in the code.
 
-API Endpoints
+## API Endpoints
+
 1. Retrieve Available Items
 
 Endpoint: /getItems
@@ -58,13 +60,14 @@ Method: GET
 Endpoint: /getState
 Description: Retrieves the current state of the robotic system, including waiting callbacks and order status.
 Method: GET
-Server-Sent Events (SSE)
+
+## Server-Sent Events (SSE)
 The server also supports Server-Sent Events (SSE) for real-time updates on the system's state. SSE is available at the /stream and /sse endpoints.
 
 Customization
 You can customize and extend this server as needed. For example, you can modify the list of available drinks, add additional endpoints, or integrate it with your robotic system.
 
 Contributors
-[Your Name]
+Mert Aksehirlioglu
 License
 This project is licensed under the [License Name].
