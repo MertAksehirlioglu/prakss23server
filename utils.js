@@ -26,7 +26,6 @@ async function getImageForDrink(drinkName) {
   
     // Find the element with the specified ID
     const element = $('#resitem-0');
-    console.log(element.children().first().children().first())
     const image_link = element.children().first().children().first().attr('data-src');
 
     return image_link

@@ -1,6 +1,7 @@
 const express = require("express");
+const compression = require('compression')
 const axios = require("axios");
-var SSE = require("express-sse");
+const SSE = require("express-sse");
 const cors = require("cors");
 var bodyParser = require("body-parser");
 
@@ -8,12 +9,21 @@ const Queue = require("./Queue");
 const { delay, getImageForDrink } = require('./utils');
 
 
+const sse = new SSE();
 const app = express();
+app.use(compression());
+app.get('/sse', sse.init);
 const port = 22950;
-var sse = new SSE();
+
+app.get('/sse', (req, res, next) => {
+  res.flush = () => {}; 
+  next();
+}, sse.init);
+
+
 
 const corsOptions = {
-  origin: ["https://prak-ss-23.vercel.app", "http://localhost:3000"],
+  origin: ["https://prak-ss-23.vercel.app", "http://localhost:3000", "https://lehre.bpm.in.tum.de"],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
@@ -81,8 +91,8 @@ function saveInstance(instanceId, status, customerName, itemName) {
       const processedOrderIndex = state.orders.processingOrders.findIndex(
         (x) => x.instanceId === instanceId
       );
-      const processedOrder =
-        state.orders.processingOrders.at(processedOrderIndex);
+      console.log(state.orders.processingOrders)
+      const processedOrder = state.orders.processingOrders[processedOrderIndex];
       state.orders.processingOrders.splice(processedOrderIndex, 1);
       if (state.orders.readyOrders.length > 4) {
         state.orders.readyOrders.shift();
@@ -138,7 +148,11 @@ Sends an order to a specified callback address asynchronously.
 */
 async function sendOrder(order, callbackAddress) {
   console.log("Send Order called");
-  axios.put(callbackAddress, order);
+  try {
+    axios.put(callbackAddress, order);
+  } catch (error) {
+    console.log('callbackadress doesnt respond')
+  }
   console.log("put request sent to callbackAddress");
 }
 
@@ -186,7 +200,6 @@ app.get("/getOrder", async (req, res) => {
   updateState(req, "GETORDER");
 
   res.set("CPEE-CALLBACK", true);
-  console.log(callbackAddresses);
   return res.send("I will notify you when order is taken");
 });
 
