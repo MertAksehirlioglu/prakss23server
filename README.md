@@ -1,4 +1,4 @@
-#Order Receiving Server
+# Order Receiving Server
 
 The Order Receiving Server is a Node.js application that facilitates the process of receiving and processing orders for a robotic system. It provides a simple API for ordering drinks, checking system readiness, and monitoring the current state of the system.
 
