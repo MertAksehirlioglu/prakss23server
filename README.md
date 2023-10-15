@@ -46,6 +46,11 @@ To start the server, run the following command:
 npm start
 ```
 
+## Project Structure
+
+- **app.js**: The main file containing the Express application setup and endpoints.
+- **Queue.js**: A custom Queue data structure implementation to store callback addresses.
+- **utils.js**: Contains utility functions for the project, including `getImageForDrink(drinkname: string)` to fetch image links for drinks.
 
 ## API Endpoints
 
@@ -73,7 +78,15 @@ npm start
 ## Server-Sent Events (SSE)
 The server also supports Server-Sent Events (SSE) for real-time updates on the system's state. SSE is available at the **/stream** and **/sse** endpoints.
 
-Contributors
-Mert Aksehirlioglu
-License
-This project is licensed under the MIT License.
+## Technologies Used
+
+- **[Node.js](https://nodejs.org/)**: An open-source, server-side JavaScript runtime environment.
+- **[Express](https://expressjs.com/)**: A minimal and flexible web application framework for Node.js.
+- **[axios](https://axios-http.com/)**: A JavaScript library for making HTTP requests.
+- **[express-sse](https://www.npmjs.com/package/express-sse)**: A library for implementing Server-Sent Events (SSE) in Express applications.
+- **[cheerio](https://cheerio.js.org/)**: A library for parsing and manipulating HTML and XML documents.
+
+
+Contributors: Mert Aksehirlioglu
+
+License: This project is licensed under the MIT License.
